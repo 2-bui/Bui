@@ -23,7 +23,9 @@
         .animation {
             width: 100%;
             height: 100%;
-            background: url('character.gif') no-repeat center/contain; /* GIF 표시 */
+            background-image: url('character-static.png'); /* GIF 정지 이미지 */
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
             cursor: pointer; /* 클릭 가능 표시 */
         }
@@ -62,12 +64,12 @@
 
         let isPlaying = false;
 
-        // GIF 클릭 이벤트
+        // 클릭 이벤트
         animation.addEventListener('click', () => {
             if (!isPlaying) {
-                // GIF 재생 시작
-                animation.style.background = "url('character.gif') no-repeat center/contain"; // GIF 재생
-                animationContainer.style.animation = "none"; // 확대 축소 멈춤
+                // GIF 이미지 활성화
+                animation.style.backgroundImage = "url('character.gif')"; // GIF 재생
+                animationContainer.style.animation = "none"; // 확대 축소 애니메이션 중지
 
                 // 음악 재생
                 audio.play();
