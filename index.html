@@ -12,8 +12,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: white;
+            background-color: black; /* 초기 배경 검정 */
             overflow: hidden;
+            transition: background-color 1s ease; /* 부드러운 배경색 전환 */
         }
         video {
             position: absolute;
@@ -69,6 +70,7 @@
     </audio>
 
     <script>
+        const body = document.body;
         const video1 = document.getElementById('video1');
         const video2 = document.getElementById('video2');
         const gifContainer = document.getElementById('gif-container');
@@ -83,6 +85,9 @@
 
                 // 첫 번째 영상 숨기기
                 video1.style.display = 'none';
+
+                // 배경색 전환
+                body.style.backgroundColor = 'white';
 
                 // 두 번째 영상 보이기
                 video2.style.display = 'block';
