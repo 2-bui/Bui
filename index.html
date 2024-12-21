@@ -14,7 +14,6 @@
             height: 100vh;
             background-color: black; /* 초기 배경 검정 */
             overflow: hidden;
-            transition: background-color 1s ease; /* 부드러운 배경색 전환 */
         }
         video {
             position: absolute;
@@ -104,6 +103,9 @@
                 });
             }
         });
+
+        // 첫 번째 영상 설정
+        video1.play();
     </script>
 </body>
 </html>
