@@ -47,13 +47,13 @@
 </head>
 <body>
     <!-- 첫 번째 영상 -->
-    <video id="video1" autoplay loop muted>
+    <video id="video1" autoplay loop muted playsinline>
         <source src="first-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <!-- 두 번째 영상 -->
-    <video id="video2" muted style="display: none;">
+    <video id="video2" muted style="display: none;" playsinline>
         <source src="second-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -76,6 +76,9 @@
         const audio = document.getElementById('background-music');
 
         let hasTouched = false;
+
+        // 초기 첫 번째 영상 자동 재생 설정
+        video1.play();
 
         // 화면 터치 이벤트
         document.body.addEventListener('click', () => {
@@ -104,8 +107,11 @@
             }
         });
 
-        // 첫 번째 영상 설정
-        video1.play();
+        // 사용자가 멈추거나 뒤로가기 방지
+        window.addEventListener('beforeunload', (e) => {
+            e.preventDefault();
+            e.returnValue = '';
+        });
     </script>
 </body>
 </html>
