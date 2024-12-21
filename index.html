@@ -16,7 +16,7 @@
             overflow: hidden;
         }
         .animation-container {
-            width: 291px; /* GIF 크기 맞춤 */
+            width: 291px; /* 기본 GIF 크기 */
             height: 183px;
         }
         .animation {
@@ -27,11 +27,18 @@
             background-repeat: no-repeat; /* 반복 방지 */
             background-position: center;
         }
+        @media (max-width: 768px) { /* 모바일 화면 조정 */
+            .animation-container {
+                width: 200px;
+                height: 125px;
+            }
+        }
     </style>
 </head>
 <body>
-    <audio autoplay loop style="display: none;"> <!-- 음악 컨트롤 숨김 -->
-        <source src="music.mp4" type="audio/mp4"> <!-- 음악 파일 -->
+    <button onclick="document.getElementById('background-music').play()" style="position: absolute; top: 10px; left: 10px; z-index: 100;">Play Music</button>
+    <audio id="background-music" loop style="display: none;">
+        <source src="music.mp3" type="audio/mpeg"> <!-- 음악 파일 -->
         Your browser does not support the audio element.
     </audio>
     <div class="animation-container">
